@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -24,7 +23,7 @@ public class Main {
         saveGame(SAVE_DIRECTORY + pathSaveGame2, game2);
         saveGame(SAVE_DIRECTORY + pathSaveGame3, game3);
 
-        addFileToArchieve(new String[] {pathSaveGame1, pathSaveGame2, pathSaveGame3},
+        addFileToArchive(new String[] {pathSaveGame1, pathSaveGame2, pathSaveGame3},
                 SAVE_DIRECTORY + "saves.zip");
 
         Arrays.stream(new String[]{pathSaveGame1, pathSaveGame2, pathSaveGame3})
@@ -40,8 +39,8 @@ public class Main {
         }
     }
 
-    private static void addFileToArchieve(String[] files, String archieveName) {
-        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(archieveName))) {
+    private static void addFileToArchive(String[] files, String archiveName) {
+        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(archiveName))) {
             for (String file : files) {
                 FileInputStream fis = new FileInputStream(SAVE_DIRECTORY + file);
 
